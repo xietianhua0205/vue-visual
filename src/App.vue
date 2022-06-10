@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <router-view/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import data from './data.json'
+import { reactive, ref } from '@vue/reactivity';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  setup () {
+    const num = ref(1)
+    const obj = reactive({
+      name: 1
+    })
+    console.log(data)
+    debugger
+    return {
+      obj,
+      num
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
